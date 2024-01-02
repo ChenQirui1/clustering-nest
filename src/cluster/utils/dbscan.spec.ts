@@ -27,9 +27,9 @@ describe('Dbscan', () => {
       ];
       const noise = [8];
 
-      const received = dbscan.generate(dataset);
+      dbscan.generate(dataset);
 
-      expect(dbscan.generate(dataset)).toEqual(result);
+      expect(dbscan.getCluster()).toEqual(result);
       expect(dbscan.getOutliers()).toEqual(noise);
     });
   });

@@ -1,31 +1,45 @@
-import { Injectable } from '@nestjs/common';
-import { Cluster } from 'cluster';
-import { IClusteringAlgorithm } from './cluster.interface';
+import { Injectable, Inject } from '@nestjs/common';
+import { IClusteringAlgorithm, Message } from './cluster.interface';
+import { Cluster } from './cluster.interface';
 
 export interface IClusterService {
-  generateClusters(messages: string[]): Cluster[];
+  generateClusters(messages: Message[]): Cluster[];
   getClusterNames(): string[];
+  getMessages(): Message[] | null;
 }
 
 @Injectable()
 export class ClusterService implements IClusterService {
-  constructor(private clusterAlgorithm: IClusteringAlgorithm) {}
+  constructor(
+    @Inject('IClusteringAlgorithm')
+    private clusterAlgorithm: IClusteringAlgorithm,
+  ) {}
 
-  private clusters: Cluster[] = [];
+  private messages: Message[] = [];
   private clusterNames: string[] = [];
 
-  generateClusters(messages: string[]) {
-    this.clusterAlgorithm.generate(messages);
+  generateClusters(messages: Message[]) {
+    const embeddings = messages.map((message) => message.embedding);
 
-    //save the result to the private prop
-    const clusters = this.clusterAlgorithm.clusters.map((embeddingIndices, clusterId) => {
-      const embedding = embeddingIndices.map((index) => {
-        // Assuming you have an array of embeddings named 'inputEmbeddings'
-        return { embedding: messages[index], clusterId };
-      });
+    this.clusterAlgorithm.generate(embeddings);
 
-      return embedding;
+    //update messages with clusterId
+    this.clusterAlgorithm.getCluster().forEach((embeddingIndices, clusterId) => {
+      embeddingIndices.forEach((index) => (messages[index].clusterId = clusterId));
     });
+
+    //set outliers to a negative num
+    this.clusterAlgorithm.getOutliers().forEach((messageIndex) => {
+      messages[messageIndex].clusterId = -1;
+    });
+
+    this.messages = messages;
+
+    return this.messages;
+  }
+
+  getMessages() {
+    return this.messages;
   }
 
   getClusterNames() {

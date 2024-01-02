@@ -1,7 +1,7 @@
 import { IClusteringAlgorithm } from '../../cluster/cluster.interface';
 import { Cluster } from '../../cluster/cluster.interface';
 import { Injectable } from '@nestjs/common';
-
+/* 
 @Injectable()
 export class KMeans implements IClusteringAlgorithm {
   private clusters: Cluster[];
@@ -13,4 +13,4 @@ export class KMeans implements IClusteringAlgorithm {
   getClusterNames() {
     return this.clusterNames;
   }
-}
+} */

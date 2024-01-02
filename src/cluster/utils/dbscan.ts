@@ -9,18 +9,16 @@ export class Dbscan implements IClusteringAlgorithm {
   private clusterNames: string[];
   private outliers: number[] = [];
 
-  generate(messages: number[][]) {
+  generate(embeddings: number[][]) {
     //dbscan implementation from
     //https://github.com/uhho/density-clustering
     const dbscan = new DBSCAN();
 
     //TODO: make these parameters configurable, add constants
-    const clustersOfIndex = dbscan.run(messages, 5, 2);
+    const clustersOfIndex = dbscan.run(embeddings, 5, 2);
 
     this.clusters = clustersOfIndex;
     this.outliers = dbscan.noise;
-
-    return clustersOfIndex;
   }
   getCluster() {
     return this.clusters;
