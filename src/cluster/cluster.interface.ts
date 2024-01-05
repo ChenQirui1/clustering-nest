@@ -3,6 +3,11 @@ export interface Cluster {
   clusterId: number;
 }
 
+export interface ClusteredMessage {
+  clusterId: number;
+  message: Message[];
+}
+
 export interface Message {
   messageId: number;
   embedding: number[];
