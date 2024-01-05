@@ -12,5 +12,6 @@ import { Dbscan } from './utils/dbscan';
     },
     ClusterService,
   ],
+  exports: [ClusterService],
 })
 export class ClusterModule {}

@@ -11,7 +11,7 @@ function feedback(feedbackFormResponse, time) {
   const feedbackForm = { ...feedbackFormResponse, time: time };
   // console.log(feedbackForm)
   //append to json file
-  fs.appendFile("data3.json", JSON.stringify(feedbackForm), function (err) {
+  fs.appendFile("data3.json", JSON.stringify(feedbackForm), function(err) {
     if (err) throw err;
     console.log("Saved!");
   });

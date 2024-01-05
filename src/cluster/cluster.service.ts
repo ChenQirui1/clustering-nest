@@ -38,6 +38,33 @@ export class ClusterService implements IClusterService {
     return this.messages;
   }
 
+  getCentroids() {
+    //group messages by clusterId
+    //return the average of each cluster
+    const clusters = this.messages.reduce((clusters, message) => {
+      if (message.clusterId === null) {
+        return clusters;
+      }
+      if (!clusters[message.clusterId]) {
+        clusters[message.clusterId] = [];
+      }
+      clusters[message.clusterId].push(message.embedding);
+      return clusters;
+    }, {});
+
+    //for each cluster,get each embedding, sum them up, divide by number of embeddings
+    const centroids = Object.values(clusters).map((cluster: number[][]) => {
+      const sum = cluster.reduce(
+        (sum, embedding) => {
+          return sum.map((sum, index) => sum + embedding[index]);
+        },
+        [0, 0],
+      );
+      return sum.map((sum) => sum / cluster.length);
+    });
+    return centroids;
+  }
+
   getMessages() {
     return this.messages;
   }
@@ -45,4 +72,6 @@ export class ClusterService implements IClusterService {
   getClusterNames() {
     return this.clusterNames;
   }
+
+  getScore() {}
 }

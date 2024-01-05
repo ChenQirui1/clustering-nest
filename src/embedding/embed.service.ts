@@ -1,19 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { Embedding } from './embed.interface';
 import { OpenAIService } from '../openai/openai.service';
+
 export interface EmbeddingService {
-  generateEmbeddings(message: string): Promise<number[]>;
+  generateEmbeddings(message: string): Promise<number[] | string>;
 }
 
 @Injectable()
 export class TextAda implements EmbeddingService {
-  private embeddedStrings: Embedding[] = [];
-
   constructor(private openaiService: OpenAIService) {}
 
-  //TODO: fix the promise
   async generateEmbeddings(message: string) {
-    const embedding: Promise<number[]> = await this.openaiService
+    return await this.openaiService
       .getClient()
       .embeddings.create({
         model: 'text-embedding-ada-002',
@@ -21,11 +19,11 @@ export class TextAda implements EmbeddingService {
         encoding_format: 'float',
       })
       .then((response) => {
+        // console.log(response.data[0].embedding);
         return response.data[0].embedding;
       })
-      .catch((error) => {
-        return error;
+      .catch((err) => {
+        return 'failed to generate embedding';
       });
-    return embedding;
   }
 }
