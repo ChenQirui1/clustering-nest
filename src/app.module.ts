@@ -5,7 +5,7 @@ import { ClusterModule } from './cluster/cluster.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [ConfigModule.forRoot(), ClusterModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), ClusterModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -5,13 +5,17 @@ export interface Cluster {
 
 export interface ClusteredMessage {
   clusterId: number;
-  message: Message[];
+  messages: Message[];
 }
 
 export interface Message {
   messageId: number;
   embedding: number[];
-  clusterId: number | null;
+}
+
+export interface Centroid {
+  clusterId: number;
+  embedding: number[];
 }
 
 export interface ClusterName {

@@ -1,11 +1,11 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { IClusteringAlgorithm, Message } from './cluster.interface';
+import { ClusteredMessage, IClusteringAlgorithm, Message } from './cluster.interface';
 import { Cluster } from './cluster.interface';
 
 export interface IClusterService {
-  generateClusters(messages: Message[]): Cluster[];
+  generateClusters(messages: Message[]): ClusteredMessage[];
   getClusterNames(): string[];
-  getMessages(): Message[] | null;
+  getMessages(): ClusteredMessage[] | null;
 }
 
 @Injectable()
@@ -15,7 +15,7 @@ export class ClusterService implements IClusterService {
     private clusterAlgorithm: IClusteringAlgorithm,
   ) {}
 
-  private messages: Message[] = [];
+  private messages: ClusteredMessage[] = [];
   private clusterNames: string[] = [];
 
   generateClusters(messages: Message[]) {
@@ -25,15 +25,14 @@ export class ClusterService implements IClusterService {
 
     //update messages with clusterId
     this.clusterAlgorithm.getCluster().forEach((embeddingIndices, clusterId) => {
-      embeddingIndices.forEach((index) => (messages[index].clusterId = clusterId));
+      // embeddingIndices.forEach((index) => (messages[index] = clusterId));
+      const messagesInCluster = embeddingIndices.map((index) => messages[index]);
+      this.messages.push({ clusterId, messages: messagesInCluster });
     });
 
     //set outliers to a negative num
-    this.clusterAlgorithm.getOutliers().forEach((messageIndex) => {
-      messages[messageIndex].clusterId = -1;
-    });
-
-    this.messages = messages;
+    const messagesInOutlier = this.clusterAlgorithm.getOutliers().map((index) => messages[index]);
+    this.messages.push({ clusterId: -1, messages: messagesInOutlier });
 
     return this.messages;
   }
@@ -41,28 +40,6 @@ export class ClusterService implements IClusterService {
   getCentroids() {
     //group messages by clusterId
     //return the average of each cluster
-    const clusters = this.messages.reduce((clusters, message) => {
-      if (message.clusterId === null) {
-        return clusters;
-      }
-      if (!clusters[message.clusterId]) {
-        clusters[message.clusterId] = [];
-      }
-      clusters[message.clusterId].push(message.embedding);
-      return clusters;
-    }, {});
-
-    //for each cluster,get each embedding, sum them up, divide by number of embeddings
-    const centroids = Object.values(clusters).map((cluster: number[][]) => {
-      const sum = cluster.reduce(
-        (sum, embedding) => {
-          return sum.map((sum, index) => sum + embedding[index]);
-        },
-        [0, 0],
-      );
-      return sum.map((sum) => sum / cluster.length);
-    });
-    return centroids;
   }
 
   getMessages() {

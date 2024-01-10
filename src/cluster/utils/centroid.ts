@@ -1,36 +1,30 @@
-//for each cluster,get each embedding, sum them up, divide by number of embeddings
-interface ClusteredEmbedding {
-  clusterId: number;
-  embeddings: number[][];
-}
-
-import { ClusteredMessage } from '../cluster.interface';
-interface Centroid {
-  clusterId: number;
-  embedding: number[];
-}
+import { euDistance } from './scoring';
+import { ClusteredMessage, Message, Centroid } from '../cluster.interface';
 
 export function centroids(clusters: ClusteredMessage[]): Centroid[] {
-  return clusters.map((cluster) => {
-    const sum = cluster.messages.reduce(
-      (sum, messages) => {
-        return sum.map((sum, index) => sum + messages[index].embedding);
-      },
-      [0, 0],
-    );
+  //for each cluster,get each embedding, sum them up, divide by number of embeddings
+  let centroids: Centroid[] = [];
 
-    const mean = sum.map((sum) => sum / cluster.messages.length);
+  clusters.forEach((cluster) => {
+    const embeddings = cluster.messages.map((message) => message.embedding);
 
-    return { clusterId: cluster.clusterId, embedding: mean };
+    const mean = embeddings
+      //sum up all points
+      .reduce((sum, point) => sum.map((val, index) => val + point[index]))
+      //divide by number of points
+      .map((sum) => sum / cluster.messages.length);
+
+    centroids.push({ clusterId: cluster.clusterId, embedding: mean });
   });
+  return centroids;
 }
 
-function nearestPointToCentroid(centroid: number[], embeddings: number[][]) {
-  let nearestPoint = embeddings[0];
-  let nearestDistance = euDistance(centroid, embeddings[0]);
-  for (let i = 1; i < embeddings.length; i++) {
-    const point = embeddings[i];
-    const distanceToCentroid = euDistance(centroid, point);
+function nearestPointToCentroid(centroid: Centroid, messageInCluster: ClusteredMessage) {
+  let nearestPoint = messageInCluster.messages[0];
+  let nearestDistance = euDistance(centroid.embedding, messageInCluster.messages[0].embedding);
+  for (let i = 1; i < centroid.embedding.length; i++) {
+    const point = messageInCluster.messages[i];
+    const distanceToCentroid = euDistance(centroid.embedding, point.embedding);
     if (distanceToCentroid < nearestDistance) {
       nearestDistance = distanceToCentroid;
       nearestPoint = point;
@@ -40,10 +34,37 @@ function nearestPointToCentroid(centroid: number[], embeddings: number[][]) {
 }
 
 export function nearestPointsToCentroids(
-  centroids: number[][],
-  clusteredEmbedding: ClusteredEmbedding[],
+  centroids: Centroid[],
+  clusteredMessage: ClusteredMessage[],
 ) {
-  return centroids.map((centroid, index) => {
-    return nearestPointToCentroid(centroid, clusteredEmbedding[index].embeddings);
+  return centroids.map((centroid) => {
+    const messageInCluster = clusteredMessage.find(
+      (cluster) => cluster.clusterId === centroid.clusterId,
+    );
+    return nearestPointToCentroid(centroid, messageInCluster);
   });
+}
+
+export function distanceFromCentroids(centroids: Centroid[], point: Message) {
+  return centroids.map((centroid) => ({
+    clusterId: centroid.clusterId,
+    distance: euDistance(point.embedding, centroid.embedding),
+  }));
+}
+
+export function closestCluster(centroids: Centroid[], point: Message) {
+  const distances = distanceFromCentroids(centroids, point);
+
+  //find next nearest cluster
+  let closestCluster = distances[0];
+  let secondClosestCluster = distances[1];
+
+  for (let i = 0; i < distances.length; i++) {
+    if (distances[i].distance < closestCluster.distance) {
+      closestCluster = distances[i];
+    } else if (distances[i].distance < secondClosestCluster.distance) {
+      secondClosestCluster = distances[i];
+    }
+  }
+  return [closestCluster.clusterId, secondClosestCluster.clusterId];
 }
