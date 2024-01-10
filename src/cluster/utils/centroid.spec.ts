@@ -1,5 +1,20 @@
-import { ClusteredMessage } from '../cluster.interface';
-import { centroids, nearestPointsToCentroids } from './centroid';
+import { ClusteredMessage, Message } from '../cluster.interface';
+import { centroids, distanceFromCentroids, nearestPointsToCentroids } from './centroid';
+
+test('get distance from centroid', () => {
+  const message: Message = { messageId: 1, embedding: [1, 2] };
+
+  const centroids = [
+    { clusterId: 1, embedding: [2, 3] },
+    { clusterId: 2, embedding: [9, 10] },
+  ];
+  const messages = distanceFromCentroids(centroids, message);
+
+  console.log(messages);
+  expect(messages).toBeDefined();
+  expect(messages.length).toBe(2);
+});
+
 test('find centroids', () => {
   const clusteredMessage: ClusteredMessage[] = [
     {

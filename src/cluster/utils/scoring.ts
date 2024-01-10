@@ -1,29 +1,41 @@
+import cluster from 'cluster';
 import { Message, ClusteredMessage, Centroid } from '../cluster.interface';
 import { centroids, distanceFromCentroids } from './centroid';
 
 //formula for silhoutte coefficient
 //https://scikit-learn.org/stable/modules/clustering.html#silhouette-coefficient
-function silhoutteCoeffPerPoint(a: number, b: number) {
-  return (a - b) / Math.max(a, b);
+export function silhoutteCoeffPerPoint(a: number, b: number) {
+  return (b - a) / Math.max(a, b);
 }
 
 export function silhoutteCoeff(clusteredMessage: ClusteredMessage[]) {
-  return clusteredMessage
-    .map((cluster) =>
-      cluster.messages
-        .map((message) => {
-          const { a, b } = inOutDistancePerPoint(message, clusteredMessage);
-          return silhoutteCoeffPerPoint(a, b);
-        })
-        .reduce((sum, currentCoeff) => sum + currentCoeff, 0),
-    )
+  // const sum = clusteredMessage
+  //   .map((cluster) =>
+  //     cluster.messages
+  //       .map((message) => {
+  //         const { a, b } = inOutDistancePerPoint(message, clusteredMessage);
+  //         return silhoutteCoeffPerPoint(a, b);
+  //       })
+  //       .reduce((sum, currentCoeff) => sum + currentCoeff, 0),
+  //   )
+  //   .reduce((sum, currentCoeff) => sum + currentCoeff, 0);
+
+  const messages = clusteredMessage.map((cluster) => cluster.messages).flat();
+
+  const sum = messages
+    .map((message) => {
+      const { a, b } = inOutDistancePerPoint(message, clusteredMessage);
+      return silhoutteCoeffPerPoint(a, b);
+    })
     .reduce((sum, currentCoeff) => sum + currentCoeff, 0);
+
+  return sum / messages.length;
 }
 
 //used to identify closest and second closest
 export function closestCluster(centroids: Centroid[], point: Message) {
   const distances = distanceFromCentroids(centroids, point);
-
+  //TODO: add a check for at least 2 clusters
   //find next nearest cluster
   let closestCluster = distances[0];
   let secondClosestCluster = distances[1];
@@ -31,8 +43,10 @@ export function closestCluster(centroids: Centroid[], point: Message) {
   for (let i = 0; i < distances.length; i++) {
     if (distances[i].distance < closestCluster.distance) {
       closestCluster = distances[i];
-    } else if (distances[i].distance < secondClosestCluster.distance) {
-      secondClosestCluster = distances[i];
+
+      if (distances[i].distance < secondClosestCluster.distance) {
+        secondClosestCluster = distances[i];
+      }
     }
   }
   return [closestCluster.clusterId, secondClosestCluster.clusterId];

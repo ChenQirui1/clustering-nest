@@ -10,7 +10,7 @@ export function centroids(clusters: ClusteredMessage[]): Centroid[] {
 
     const mean = embeddings
       //sum up all points
-      .reduce((sum, point) => sum.map((val, index) => val + point[index]))
+      .reduce((sum, point) => sum.map((val, index) => val + point[index]), [])
       //divide by number of points
       .map((sum) => sum / cluster.messages.length);
 
@@ -50,21 +50,4 @@ export function distanceFromCentroids(centroids: Centroid[], point: Message) {
     clusterId: centroid.clusterId,
     distance: euDistance(point.embedding, centroid.embedding),
   }));
-}
-
-export function closestCluster(centroids: Centroid[], point: Message) {
-  const distances = distanceFromCentroids(centroids, point);
-
-  //find next nearest cluster
-  let closestCluster = distances[0];
-  let secondClosestCluster = distances[1];
-
-  for (let i = 0; i < distances.length; i++) {
-    if (distances[i].distance < closestCluster.distance) {
-      closestCluster = distances[i];
-    } else if (distances[i].distance < secondClosestCluster.distance) {
-      secondClosestCluster = distances[i];
-    }
-  }
-  return [closestCluster.clusterId, secondClosestCluster.clusterId];
 }

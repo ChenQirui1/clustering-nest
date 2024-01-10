@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { ClusterService } from './cluster.service';
 import { Message } from './cluster.interface';
 import { Dbscan } from './utils/dbscan';
+import benefits from '../data/benefits_transformed.json';
 
 describe('ClusterService', () => {
   let service: ClusterService;
@@ -38,14 +39,42 @@ describe('ClusterService', () => {
       const mockMessages: Message[] = embedding.map((embedding, index) => ({
         messageId: index,
         embedding,
-        clusterId: null,
       }));
 
       service.generateClusters(mockMessages);
 
-      console.log(service.getMessages());
+      // console.log(service.getMessages());
+      service.getScore();
       // Assert
       // expect(service.getMessages()).toBeInstanceOf();
+      expect(Array.isArray(service.getMessages())).toBe(true);
+    });
+  });
+});
+
+describe('test mock data', () => {
+  let service: ClusterService;
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [ClusterService, { provide: 'IClusteringAlgorithm', useClass: Dbscan }],
+    }).compile();
+
+    service = module.get<ClusterService>(ClusterService);
+  });
+
+  describe('test data', () => {
+    it('should cluster test data', () => {
+      const mockMessages: Message[] = benefits
+        .filter((benefit) => benefit.embeddings && benefit.embeddings.length > 0)
+        .map((benefit) => ({ messageId: benefit.id, embedding: benefit.embeddings }));
+
+      service.generateClusters(mockMessages);
+
+      console.log(service.getMessages());
+      console.log(service.getCentroids());
+      console.log(service.getScore());
+
       expect(Array.isArray(service.getMessages())).toBe(true);
     });
   });
