@@ -15,7 +15,7 @@ export class Dbscan implements IClusteringAlgorithm {
     const dbscan = new DBSCAN();
 
     //TODO: make these parameters configurable, add constants
-    const clustersOfIndex = dbscan.run(embeddings, 0.25, 10);
+    const clustersOfIndex = dbscan.run(embeddings, 11, 5);
 
     this.clusters = clustersOfIndex;
     this.outliers = dbscan.noise;

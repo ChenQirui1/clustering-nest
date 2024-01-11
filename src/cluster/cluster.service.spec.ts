@@ -3,6 +3,7 @@ import { ClusterService } from './cluster.service';
 import { Message } from './cluster.interface';
 import { Dbscan } from './utils/dbscan';
 import benefits from '../data/benefits_transformed.json';
+import { PCA } from 'ml-pca';
 
 describe('ClusterService', () => {
   let service: ClusterService;

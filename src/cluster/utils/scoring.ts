@@ -4,35 +4,39 @@ import { centroids, distanceFromCentroids } from './centroid';
 
 //formula for silhoutte coefficient
 //https://scikit-learn.org/stable/modules/clustering.html#silhouette-coefficient
-export function silhoutteCoeffPerPoint(a: number, b: number) {
+export function silhouetteCoeffPerPoint(a: number, b: number) {
   return (b - a) / Math.max(a, b);
 }
 
-export function silhoutteCoeff(clusteredMessage: ClusteredMessage[]) {
-  // const sum = clusteredMessage
-  //   .map((cluster) =>
-  //     cluster.messages
-  //       .map((message) => {
-  //         const { a, b } = inOutDistancePerPoint(message, clusteredMessage);
-  //         return silhoutteCoeffPerPoint(a, b);
-  //       })
-  //       .reduce((sum, currentCoeff) => sum + currentCoeff, 0),
-  //   )
-  //   .reduce((sum, currentCoeff) => sum + currentCoeff, 0);
-
+export function silhouetteCoeff(clusteredMessage: ClusteredMessage[]) {
   const messages = clusteredMessage.map((cluster) => cluster.messages).flat();
 
   const sum = messages
     .map((message) => {
       const { a, b } = inOutDistancePerPoint(message, clusteredMessage);
-      return silhoutteCoeffPerPoint(a, b);
+      return silhouetteCoeffPerPoint(a, b);
     })
     .reduce((sum, currentCoeff) => sum + currentCoeff, 0);
 
   return sum / messages.length;
 }
 
+export function silhouetteCoeffPerCluster(clusteredMessage: ClusteredMessage[]) {
+  const messages = clusteredMessage.map(
+    (cluster) =>
+      cluster.messages
+        .map((message) => {
+          const { a, b } = inOutDistancePerPoint(message, clusteredMessage);
+          return silhouetteCoeffPerPoint(a, b);
+        })
+        .reduce((sum, currentCoeff) => sum + currentCoeff, 0) / cluster.messages.length,
+  );
+
+  return messages;
+}
+
 //used to identify closest and second closest
+//TODO: check if there is at least more than 2 clusters
 export function closestCluster(centroids: Centroid[], point: Message) {
   const distances = distanceFromCentroids(centroids, point);
   //TODO: add a check for at least 2 clusters

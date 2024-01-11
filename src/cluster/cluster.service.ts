@@ -6,8 +6,9 @@ import {
   IClusteringAlgorithm,
   Message,
 } from './cluster.interface';
+import { PCA } from 'ml-pca';
 import { centroids } from './utils/centroid';
-import { silhoutteCoeff } from './utils/scoring';
+import { silhouetteCoeff } from './utils/scoring';
 
 export interface IClusterService {
   generateClusters(messages: Message[]): ClusteredMessage[];
@@ -31,7 +32,16 @@ export class ClusterService implements IClusterService {
   generateClusters(messages: Message[]) {
     const embeddings = messages.map((message) => message.embedding);
 
-    this.clusterAlgorithm.generate(embeddings);
+    const pca = new PCA(embeddings);
+
+    const newEmbeddings = pca.predict(embeddings).to2DArray();
+
+    const reducedEmbeddings = newEmbeddings.map((newEmbedding) => newEmbedding.slice(0, 2));
+
+    console.log('newEmbeddings: ', reducedEmbeddings);
+
+    //perform clustering and determining cluster based on silhoutte analysis
+    this.clusterAlgorithm.generate(reducedEmbeddings);
 
     console.log(this.clusterAlgorithm.getCluster());
     //update messages with clusterId
@@ -72,6 +82,6 @@ export class ClusterService implements IClusterService {
   }
 
   getScore() {
-    return silhoutteCoeff(this.messages);
+    return silhouetteCoeff(this.messages);
   }
 }

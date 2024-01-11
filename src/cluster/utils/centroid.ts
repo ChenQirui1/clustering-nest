@@ -19,35 +19,45 @@ export function centroids(clusters: ClusteredMessage[]): Centroid[] {
   return centroids;
 }
 
-function nearestPointToCentroid(centroid: Centroid, messageInCluster: ClusteredMessage) {
-  let nearestPoint = messageInCluster.messages[0];
-  let nearestDistance = euDistance(centroid.embedding, messageInCluster.messages[0].embedding);
-  for (let i = 1; i < centroid.embedding.length; i++) {
-    const point = messageInCluster.messages[i];
-    const distanceToCentroid = euDistance(centroid.embedding, point.embedding);
-    if (distanceToCentroid < nearestDistance) {
-      nearestDistance = distanceToCentroid;
-      nearestPoint = point;
-    }
-  }
-  return nearestPoint;
+//get the coordinate of the centroids
+export function centroidsTest(clusteredPoints: number[][][]) {
+  //for each cluster,get each embedding, sum them up, divide by number of embeddings
+  // let centroids: number[][] = [];
+  return clusteredPoints.map((clusteredPoint) =>
+    clusteredPoint
+      //sum up all points
+      .reduce((sum, point) => sum.map((val, index) => val + point[index]), [])
+      //divide by number of points
+      .map((sum) => sum / clusteredPoint.length),
+  );
 }
 
-export function nearestPointsToCentroids(
-  centroids: Centroid[],
-  clusteredMessage: ClusteredMessage[],
-) {
-  return centroids.map((centroid) => {
-    const messageInCluster = clusteredMessage.find(
-      (cluster) => cluster.clusterId === centroid.clusterId,
-    );
-    return nearestPointToCentroid(centroid, messageInCluster);
-  });
+export function distanceFromCentroids(centroids: number[][], point: number[]) {
+  return centroids.map((centroid) => euDistance(point, centroid));
 }
+// function nearestPointToCentroid(centroid: Centroid, messageInCluster: ClusteredMessage) {
+//   let nearestPoint = messageInCluster.messages[0];
+//   let nearestDistance = euDistance(centroid.embedding, messageInCluster.messages[0].embedding);
+//   for (let i = 1; i < centroid.embedding.length; i++) {
+//     const point = messageInCluster.messages[i];
+//     const distanceToCentroid = euDistance(centroid.embedding, point.embedding);
+//     if (distanceToCentroid < nearestDistance) {
+//       nearestDistance = distanceToCentroid;
+//       nearestPoint = point;
+//     }
+//   }
+//   return nearestPoint;
+// }
 
-export function distanceFromCentroids(centroids: Centroid[], point: Message) {
-  return centroids.map((centroid) => ({
-    clusterId: centroid.clusterId,
-    distance: euDistance(point.embedding, centroid.embedding),
-  }));
-}
+// export function nearestPointsToCentroids(
+//   centroids: Centroid[],
+//   clusteredMessage: ClusteredMessage[],
+// ) {
+//   return centroids.map((centroid) => {
+//     const messageInCluster = clusteredMessage.find(
+//       (cluster) => cluster.clusterId === centroid.clusterId,
+//     );
+//     return nearestPointToCentroid(centroid, messageInCluster);
+//   });
+
+// }
