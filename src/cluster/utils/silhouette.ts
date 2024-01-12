@@ -22,31 +22,41 @@ export function silhouetteCoeff(clusteredPoints: number[][][]) {
   return sum / messages.length;
 }
 
-export function testCluster(clusteredPoints: number[][][], overallScore: number) {
-  let acceptableCluster = [];
+export function testRun(
+  clusteredPoints: number[][][],
+  overallScore: number,
+  diffCutoff: number,
+): boolean {
+  //test whether the cluster pass the overall score
+  const approxClusterSize = clusteredPoints.flat().length;
+
   for (let i = 0; i < clusteredPoints.length; i++) {
+    //for each cluster
     let passFlag = false;
     for (let j = 0; j < clusteredPoints[i].length; j++) {
       const { a, b } = inOutDistancePerPoint(clusteredPoints[i][j], clusteredPoints);
       const score = silhouetteCoeffPerPoint(a, b);
       if (score > overallScore) {
+        //if a point in the cluster reach the line, considered as pass
         passFlag = true;
         break;
       }
+
+      //early stop upon failure
+      if (!passFlag) {
+        return false;
+      }
     }
 
-    if (!passFlag) {
+    //test whether the cluster pass the size check
+    const size = clusteredPoints[i].length;
+    if (size / approxClusterSize > diffCutoff) {
+      return false;
     }
   }
 
-  const sum = messages
-    .map((message) => {
-      const { a, b } = inOutDistancePerPoint(message, clusteredPoints);
-      return silhouetteCoeffPerPoint(a, b);
-    })
-    .reduce((sum, currentCoeff) => sum + currentCoeff, 0);
-
-  return sum / messages.length;
+  //all is good
+  return true;
 }
 
 // export function silhouetteCoeffPerCluster(clusteredPoints: number[][][]) {

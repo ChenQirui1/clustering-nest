@@ -20,6 +20,7 @@ export class Dbscan implements IClusteringAlgorithm {
     this.clusters = clustersOfIndex;
     this.outliers = dbscan.noise;
   }
+  fit() {}
   getCluster() {
     return this.clusters;
   }

@@ -2,7 +2,7 @@ import { IClusteringAlgorithm } from '../../cluster/cluster.interface';
 import { Cluster } from '../../cluster/cluster.interface';
 import { Injectable } from '@nestjs/common';
 import { KMEANS } from 'density-clustering';
-import { silhouetteCoeff } from './silhouette';
+import { silhouetteCoeff, testRun } from './silhouette';
 
 @Injectable()
 export class KMeans implements IClusteringAlgorithm {
@@ -32,6 +32,11 @@ export class KMeans implements IClusteringAlgorithm {
       );
 
       const overallScore = silhouetteCoeff(clusteredEmbeddings);
+
+      if (testRun(clusteredEmbeddings, overallScore, 0.1)) {
+        //if pass, stop
+        break;
+      }
     }
     this.clusters = clustersOfIndex;
   }
