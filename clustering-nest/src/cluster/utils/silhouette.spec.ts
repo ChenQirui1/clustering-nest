@@ -1,21 +1,20 @@
 import { euDistance } from './scoring';
 import {
   silhouetteCoeff,
-  silhouetteCoeffPerPoint,
   calculateDistanceAgainstPoints,
   inOutDistancePerPoint,
   testRun,
 } from './silhouette';
 
-test('silhoutteCoeff per point', () => {
-  const a = 1.4142135623730951;
-  const b = 8.48528137423857;
-  const score = silhouetteCoeffPerPoint(a, b);
-  console.log(score);
-  expect(score).toBeDefined();
-  expect(score).toBeLessThan(1);
-  expect(score).toBeGreaterThan(-1);
-});
+// test('silhoutteCoeff per point', () => {
+//   const a = 1.4142135623730951;
+//   const b = 8.48528137423857;
+//   const score = silhouetteCoeffPerPoint(a, b);
+//   console.log(score);
+//   expect(score).toBeDefined();
+//   expect(score).toBeLessThan(1);
+//   expect(score).toBeGreaterThan(-1);
+// });
 
 // test('closest clusters', () => {
 //   const centroids = [

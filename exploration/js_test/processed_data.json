@@ -1,0 +1,604 @@
+[
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Easy reading experience",
+    "q4": "Include more comic book titles",
+    "time": "November 06 2016"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Ability to read comic book files on older devices",
+    "q4": "Improve the download speed and stability of the app",
+    "time": "November 05 2016"
+  },
+  {
+    "q1": "Somewhat Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a wide range of comic books",
+    "q4": "Please fix the issue with displaying sub folders within the app",
+    "time": "August 30 2016"
+  },
+  {
+    "q1": "Somewhat Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of having all my comic books in one place",
+    "q4": "Fix the minor crashes and improve the app's performance",
+    "time": "August 28 2016"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient reading experience",
+    "q4": "Improve the scaling feature to fit images properly",
+    "time": "April 13 2016"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a wide range of comic books",
+    "q4": "Please revert back to the previous version",
+    "time": "April 12 2016"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts and collectors",
+    "q3": "Access to a large library of comic books",
+    "q4": "Please fix the scaling issue so that images are automatically fitted to the screen without the need for manual adjustment.",
+    "time": "April 12 2016"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "",
+    "q3": "",
+    "q4": "Please fix the issue with the comics not going to full screen after the latest update.",
+    "time": "April 12 2016"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient reading experience",
+    "q4": "More customization options for reading settings",
+    "time": "April 11 2016"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts and fans",
+    "q3": "Convenience and ease of reading comics",
+    "q4": "Offer more customization options for reader preferences",
+    "time": "March 10 2016"
+  },
+  {
+    "q1": "Neutral",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a large collection of comics",
+    "q4": "Add more customization options for the reader interface",
+    "time": "February 24 2016"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comics on mobile devices",
+    "q4": "Add zoom feature for better reading experience",
+    "time": "February 09 2016"
+  },
+  {
+    "q1": "Somewhat Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of accessing and reading comics",
+    "q4": "Add the ability to search and import comics from the SD card",
+    "time": "January 25 2016"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Full screen page view and no ads",
+    "q4": "Add more customization options",
+    "time": "January 16 2016"
+  },
+  {
+    "q1": "Not Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a wide range of comic books",
+    "q4": "Add more features like bookmarking and offline reading",
+    "time": "January 15 2016"
+  },
+  {
+    "q1": "Neutral",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a large collection of comic books",
+    "q4": "Add more customization options for reading preferences",
+    "time": "January 09 2016"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient reading experience",
+    "q4": "Add pinch zoom functionality",
+    "time": "December 03 2015"
+  },
+  {
+    "q1": "Neutral",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comics on the go",
+    "q4": "Add more customization options for reader interface",
+    "time": "November 14 2015"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Smooth reading experience",
+    "q4": "Include more customization options for the reader",
+    "time": "November 14 2015"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comics on-the-go",
+    "q4": "Improve the app's capability to open large files and add a delete function",
+    "time": "November 07 2015"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comic books digitally",
+    "q4": "Add zoom functionality and improve user interface",
+    "time": "September 27 2015"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a vast collection of comic books",
+    "q4": "Add zoom buttons or pinch to zoom feature",
+    "time": "September 22 2015"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Access to a wide variety of comics",
+    "q4": "Improve the compatibility with Google books",
+    "time": "September 12 2015"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to my comic book library",
+    "q4": "Add a user-friendly interface with navigation options and a search feature",
+    "time": "September 02 2015"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comics digitally",
+    "q4": "Please add a zoom function to the app",
+    "time": "August 16 2015"
+  },
+  {
+    "q1": "Not Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Access to a wide range of comic books",
+    "q4": "Improve the user interface for better navigation",
+    "time": "July 22 2015"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "The convenience of reading comics on a mobile device",
+    "q4": "Add a delete comics function and improve stability",
+    "time": "July 18 2015"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts and avid readers",
+    "q3": "Convenience of reading comic books on the go",
+    "q4": "Please add a zoom feature and fix the issue with automatically moving to the next page when reaching the end of a page",
+    "time": "July 13 2015"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient reading experience",
+    "q4": "Improve zooming functionality and page navigation",
+    "time": "July 06 2015"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience and access to a wide range of comic books",
+    "q4": "Improve the navigation and search functionality",
+    "time": "June 18 2015"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of having all my comics in one place",
+    "q4": "Improve the page turning speed and allow pinch zooming",
+    "time": "June 17 2015"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Reliable comic book reading experience",
+    "q4": "Include more customization options for the reading experience",
+    "time": "June 04 2015"
+  },
+  {
+    "q1": "Neutral",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a wide range of comic books",
+    "q4": "Adding more interactive features would enhance the user experience",
+    "time": "March 28 2015"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comics on the go",
+    "q4": "Provide more options for organizing and categorizing comic collections",
+    "time": "March 20 2015"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient reading experience",
+    "q4": "Add multi-touch zoom feature",
+    "time": "February 17 2015"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Easy access to a large collection of comic books",
+    "q4": "Fix the issue with opening comics, improve stability and performance",
+    "time": "February 04 2015"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts and collectors",
+    "q3": "Convenience of accessing and reading comics on-the-go",
+    "q4": "Please add pinch-to-zoom feature for better reading experience",
+    "time": "January 30 2015"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Easy and convenient access to a wide range of comic books",
+    "q4": "Include more features for organizing and categorizing comic collections",
+    "time": "January 13 2015"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts and collectors",
+    "q3": "The ability to easily search and access my comic book collection",
+    "q4": "Adding a bookmarking feature to save my progress in a comic book",
+    "time": "January 11 2015"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comic books on the go",
+    "q4": "Improve pinch to zoom feature, fix buggy page turning, and allow the app to remember the last read page accurately.",
+    "time": "January 09 2015"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "People who love comic books",
+    "q3": "Access to a wide range of comics",
+    "q4": "Add more features and customizable options",
+    "time": "January 02 2015"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comics on the go",
+    "q4": "Improve zoom feature to allow zooming in on frames",
+    "time": "December 25 2014"
+  },
+  {
+    "q1": "Not Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience and access to a wide range of comic books",
+    "q4": "Add a feature to create personalized reading lists",
+    "time": "December 16 2014"
+  },
+  {
+    "q1": "Not Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Simple interface for easy reading",
+    "q4": "Consider adding a zoom function and improving compatibility with different tablet sizes.",
+    "time": "November 21 2014"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comic books",
+    "q4": "Fix the glitches in landscape mode",
+    "time": "November 19 2014"
+  },
+  {
+    "q1": "Somewhat Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comic books on the go",
+    "q4": "Add more customization options for the reader interface",
+    "time": "October 30 2014"
+  },
+  {
+    "q1": "Somewhat Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of accessing and reading comics",
+    "q4": "Improving the user interface and adding more features such as bookmarking and note-taking options would be great.",
+    "time": "September 08 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading digital comics",
+    "q4": "Improve the file search functionality and fix the issue with flipping pages.",
+    "time": "September 08 2014"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Clean and user-friendly interface",
+    "q4": "Add zooming functionality and ability to mark comic books as (un)read. Also, allow users to set a default location for comic files.",
+    "time": "September 03 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comics on the go",
+    "q4": "Add zoom functionality and fix the bookmark and crash issues",
+    "time": "August 28 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comic books digitally",
+    "q4": "Please add zoom functionality to enhance reading experience",
+    "time": "August 24 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comic books digitally",
+    "q4": "Improve touch sensitivity, add more options for customization, and include zoom feature",
+    "time": "August 21 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts and avid readers",
+    "q3": "Convenience of reading comic books digitally",
+    "q4": "Adding a zoom feature to make reading text easier",
+    "time": "August 10 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading digital comic books",
+    "q4": "Improve touch sensitivity for better user experience",
+    "time": "August 09 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comics on a digital platform",
+    "q4": "Fix the issue of the comic not opening when selected",
+    "time": "August 05 2014"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts and collectors",
+    "q3": "Convenient access to a wide range of comic books",
+    "q4": "Include more customization options for reading experience",
+    "time": "July 27 2014"
+  },
+  {
+    "q1": "Neutral",
+    "q2": "Comic book enthusiasts",
+    "q3": "Easy access to a wide range of comic books",
+    "q4": "Please consider adding pinch and zoom functionality for better reading experience",
+    "time": "July 23 2014"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Access to a wide range of comics",
+    "q4": "Add double tap and pinch to zoom features, improve the UI with a bookshelf and a recently read list.",
+    "time": "July 21 2014"
+  },
+  {
+    "q1": "Neutral",
+    "q2": "Comic book enthusiasts and tabletop gamers",
+    "q3": "Compatibility with different book file types",
+    "q4": "Improve the user interface to make it more modern and intuitive",
+    "time": "July 20 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a wide range of comic books",
+    "q4": "Please add a zoom feature to improve readability of the comic book panels.",
+    "time": "July 19 2014"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "The ability to read comics digitally",
+    "q4": "Adding pinch zoom feature and support for pdf files",
+    "time": "July 14 2014"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Ability to read comics on a Nexus 7",
+    "q4": "Add more customization options for reading experience",
+    "time": "July 01 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a wide range of comic books",
+    "q4": "Fix the issue with opening files in the recent updates",
+    "time": "June 30 2014"
+  },
+  {
+    "q1": "Not Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Easy access to a wide range of comic books",
+    "q4": "Add more features for customization",
+    "time": "June 30 2014"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Small size and ease of use",
+    "q4": "Please add a pinch zoom feature",
+    "time": "June 24 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a large collection of comics",
+    "q4": "Fix the issue with front covers becoming the last page in some comics",
+    "time": "June 22 2014"
+  },
+  {
+    "q1": "Not Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comic books on the go",
+    "q4": "Add more customization options for the reader interface",
+    "time": "June 22 2014"
+  },
+  {
+    "q1": "Somewhat Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Access to a wide range of comic books",
+    "q4": "Provide clear instructions on how to choose a file and access the comics",
+    "time": "June 20 2014"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of saving pages",
+    "q4": "Add a feature to save pages",
+    "time": "June 19 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts and collectors",
+    "q3": "Convenience of accessing and reading digital comic books",
+    "q4": "Improve the file opening feature and simplify the search function",
+    "time": "June 06 2014"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Easy and enjoyable comic book reading experience",
+    "q4": "Add more customization options for reading experience",
+    "time": "June 03 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "",
+    "q3": "",
+    "q4": "Allow for zooming feature",
+    "time": "June 03 2014"
+  },
+  {
+    "q1": "Not Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a wide variety of comic books",
+    "q4": "Add more interactive features and improve the user interface",
+    "time": "June 02 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Access to a wide range of comic books",
+    "q4": "Improve the search functionality to make it easier to find specific comic books",
+    "time": "May 25 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading and organizing comics",
+    "q4": "Add a feature to mark comics as read",
+    "time": "May 25 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts and collectors",
+    "q3": "Convenient access to all my comic book files in one app",
+    "q4": "Improve the file organization system, make it easier to find and open specific files",
+    "time": "May 11 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading and accessing a large collection of comics",
+    "q4": "Add zoom feature for better reading experience",
+    "time": "May 08 2014"
+  },
+  {
+    "q1": "Neutral",
+    "q2": "Comic book enthusiasts",
+    "q3": "Ability to read .cbr files and smooth auto rotate",
+    "q4": "Implement a proper bookmarking feature for remembering last read page",
+    "time": "May 05 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a large library of comics",
+    "q4": "Improve the zooming feature",
+    "time": "May 02 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts and collectors",
+    "q3": "Convenience of reading and organizing comics digitally",
+    "q4": "Add more features like offline reading and better search functionality",
+    "time": "April 23 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a wide range of comic books",
+    "q4": "Include a feature to easily locate downloaded files",
+    "time": "April 14 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to a wide range of comic books",
+    "q4": "Fix the crashing issue, improve the user interface",
+    "time": "April 07 2014"
+  },
+  {
+    "q1": "Neutral",
+    "q2": "Comic book enthusiasts",
+    "q3": "Easy access to a large collection of comic books",
+    "q4": "Fix the bugs and improve overall stability",
+    "time": "April 06 2014"
+  },
+  {
+    "q1": "Less Disappointed",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenient access to comic books",
+    "q4": "Add a pinch zoom feature, fix the issue with exiting comics folder, and create a custom screen icon",
+    "time": "April 04 2014"
+  },
+  {
+    "q1": "Neutral",
+    "q2": "Comic book enthusiasts",
+    "q3": "Convenience of reading comics on my phone",
+    "q4": "Add zoom functionality for easier reading",
+    "time": "April 02 2014"
+  },
+  {
+    "q1": "Very Disappointed",
+    "q2": "Comic book enthusiasts, avid readers",
+    "q3": "Access to a wide range of comic book titles",
+    "q4": "Fix the bug that causes the app to crash when opening the download directory",
+    "time": "March 16 2014"
+  }
+]

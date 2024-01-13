@@ -1,5 +1,5 @@
-import { IClusteringAlgorithm } from '../../cluster/cluster.interface';
-import { Cluster } from '../../cluster/cluster.interface';
+import { IClusteringAlgorithm } from '../cluster.interface';
+import { Cluster } from '../cluster.interface';
 import { Injectable } from '@nestjs/common';
 import { KMEANS } from 'density-clustering';
 import { silhouetteCoeff, testRun } from './silhouette';

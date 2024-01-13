@@ -1,0 +1,88 @@
+id,tasks,cluster,x1,x2
+0,Include more comic book titles,1,0.22789015423509246,-0.12376051397906446
+1,Enhance the app's download speed,0,-0.017694872476702775,0.11469697537947715
+1,Increase the app's stability,0,-0.006376119789711473,0.20606885547472453
+2,Fix the issue with displaying subfolders within the app,0,0.1199286123250594,0.19629098733634898
+3,Fix the minor crashes,0,0.06383268038964343,0.2872097851538201
+3,Improve the app's performance,0,-0.025414133383125315,0.15345714456044982
+6,Fix the scaling issue to automatically fit images to the screen,0,-0.02042233733540115,0.18358078146569498
+7,Fix the issue with comics not entering full screen mode after the latest update.,0,0.21734224994373852,0.12372820742043024
+8,More customization options for reading settings,1,0.05625887097832053,-0.22574802339949973
+10,Add more customization options for the reader interface,1,0.03736587155734068,-0.26007265730399454
+11,Add zoom feature for better reading experience,2,-0.17224442511771987,-0.09402741833159202
+12,Add the ability to search for comics on the SD card,1,0.21330196949301705,-0.09402414757357681
+12,Enable importing of comics from the SD card,1,0.2473848244062042,-0.03909027578029749
+13,Add more customization options,1,-0.04069952552622181,-0.2012416807933178
+16,Add pinch zoom functionality,2,-0.26715015856857754,-0.00028400210329010325
+20,Add zoom functionality,2,-0.25417550361833785,-0.05195814938933548
+20,Improve user interface,2,-0.05050444258223614,0.031000231251275018
+21,Add zoom buttons,2,-0.1902190326800001,-0.042509942291329275
+21,Implement pinch to zoom feature,2,-0.25905475851229215,0.0331891453663225
+22,Improve the compatibility with Google books,0,0.08817546942251622,0.01669676981323078
+23,Add a user-friendly interface,2,-0.04933241595329952,-0.06411803325042063
+23,Include navigation options,1,-0.0032851474942089,-0.0846248249231352
+23,Implement a search feature,2,-0.010073782724281326,-0.03603457029106754
+25,Improve the user interface to enhance navigation,2,-0.056567258092345724,0.03249844855756104
+26,Add a function to delete comics,1,0.24413802188968012,-0.12151027209256773
+26,Improve the stability of the platform,0,-0.014427051925180427,0.19950756568892863
+28,Improve zooming functionality,2,-0.23587067789066551,0.057873963079320585
+28,Improve page navigation,0,0.0038368770714687344,0.08516358127281717
+31,Include more customization options for the reading experience,1,0.043117136963124546,-0.2415046981916897
+32,Adding more interactive features would enhance the user experience,2,-0.10692494537034673,-0.09031325909425249
+33,Provide more options for organizing and categorizing comic collections,1,0.2184249747615768,-0.16056132871374965
+34,Add multi-touch zoom feature,2,-0.2478942978355917,-0.0022130215646834353
+35,Fix the issue with opening comics,0,0.3083423614225135,0.11482355326019247
+35,Improve stability and performance,0,-0.04587520538503138,0.185702636815537
+37,Include more features for organizing and categorizing comic collections,1,0.18677278781016385,-0.17154477852492223
+38,Add a bookmarking feature to save progress in a comic book,1,0.14635706400146442,-0.14589762082386537
+39,Improve pinch to zoom feature,2,-0.2447699833396679,0.07653918449877858
+39,Fix buggy page turning,0,0.07228190415767387,0.22566097486251374
+39,Allow the app to remember the last read page accurately,0,0.07084437395644246,0.05049810693565506
+40,Add more features,2,-0.09218526536238385,-0.10946380893559389
+40,Customizable options,1,-0.008614846578508665,-0.17824151946600192
+41,Improve zoom feature to allow zooming in on frames,2,-0.19256625678185074,0.04858797577209087
+43,Add a zoom function,2,-0.23611263353150214,-0.033358655086431224
+43,Improve compatibility with different tablet sizes,2,-0.04271783869096317,0.05883429442382952
+44,Fix the glitches in landscape mode,0,0.004905632668870806,0.2565253497886562
+45,Add more customization options for the reader interface,1,0.03736587155734068,-0.26007265730399454
+47,Enhance the file search functionality.,0,0.008794265354940517,0.02161661558624837
+47,Resolve the problem with page flipping.,0,0.11448090203118799,0.2138435503202047
+48,Add zooming functionality,2,-0.25177083337902445,-0.03238858550287515
+48,Enable marking comic books as read or unread,1,0.25559111252808503,-0.15937023831705757
+48,Allow setting a default location for comic files,1,0.30011121391839,-0.06271485038279014
+51,Improve touch sensitivity,2,-0.10927120913799575,0.12565494228446583
+51,Add more options for customization,1,-0.03333268267938974,-0.20525702842919408
+51,Include zoom feature,2,-0.231811216560106,-0.03787678606989623
+53,Enhance touch sensitivity for an improved user experience,2,-0.12829958027203442,0.0553139978413942
+54,Fix the issue of the comic not opening when selected,0,0.2886427030949187,0.12400890439878855
+57,Add a double tap feature for zooming,2,-0.2325282797526387,-0.0005776970158153478
+57,Incorporate a pinch to zoom feature,2,-0.2435219999952209,-0.000894684351094312
+57,Improve the user interface with a bookshelf design,1,0.03198969847490397,-0.05369554822481279
+57,Create a recently read list for users,1,0.1136655302534902,-0.1289802536741504
+60,Add a pinch zoom feature,2,-0.27221539281013984,-0.017791816350476587
+60,Support PDF files,0,0.10167772963433848,0.039453218468669636
+61,Add more customization options for the reading experience,1,0.03840810849870298,-0.25808290728370026
+62,Fix the issue with opening files in the recent updates,0,0.14087143509750627,0.24054838424731748
+63,Add more features for customization,2,-0.08032237532692514,-0.18148915396088056
+64,Add a pinch zoom feature.,2,-0.26510928581487675,-0.0053019442393154636
+65,Fix the issue with front covers becoming the last page in some comics,0,0.28308544132436925,0.09323003812699078
+67,Provide clear instructions on how to choose a file,0,0.10447282211646423,0.02177742391974947
+67,Access the comics,1,0.2622435423054904,-0.05772535950895774
+68,Add a feature to save pages,1,0.0327021870959331,-0.064718405370444
+69,Improve the file opening feature.,0,0.0458367198813094,0.09774469634472714
+69,Simplify the search function.,0,0.022827858919215956,0.03936507994411802
+70,Add more customization options for reading experience,1,0.0277028922661392,-0.2527962014114314
+72,Add more interactive features,2,-0.11873770165768954,-0.1095105083174907
+72,Improve the user interface,2,-0.0464390774343696,0.034448850512338106
+73,Improve the search functionality to facilitate easier location of specific comic books,1,0.20885127993015118,-0.0756578057280203
+74,Add a feature to mark comics as read,1,0.19852411489999094,-0.18648712052475952
+76,Add zoom feature for better reading experience,2,-0.17197325382124423,-0.09416088249402202
+77,Implement a proper bookmarking feature for remembering last read page,1,0.06500838003814306,-0.07403490937246632
+78,Improve the zooming feature,2,-0.22651488351542837,0.06033550362749295
+80,Include a feature to easily locate downloaded files,0,0.0453734744628711,0.0007260450871743964
+81,Fix the crashing issue,0,0.0771073570798783,0.3045352713077359
+81,Improve the user interface,2,-0.046405960518082635,0.03452817982038063
+82,Fix the bugs,0,0.054763597575004395,0.2621791708542592
+82,Improve overall stability,0,-0.04400421775415623,0.19066649158577728
+84,Add zoom functionality for easier reading,2,-0.18039347803759573,-0.10054556129019637
+85,Fix the bug causing the app to crash when opening the download directory,0,0.14322426922039438,0.29412322457203294
