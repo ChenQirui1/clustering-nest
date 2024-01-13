@@ -1,0 +1,17 @@
+{
+  "name": "js_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "getOpenAI.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "openai": "getOpenAI.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "openai": "^4.14.2"
+  }
+}
