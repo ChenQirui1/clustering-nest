@@ -4,13 +4,14 @@ import { Message } from './cluster.interface';
 import { Dbscan } from './utils/dbscan';
 import benefits from '../data/benefits_transformed.json';
 import { PCA } from 'ml-pca';
+import { KMeans } from './utils/kmeans';
 
 describe('ClusterService', () => {
   let service: ClusterService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ClusterService, { provide: 'IClusteringAlgorithm', useClass: Dbscan }],
+      providers: [ClusterService, { provide: 'IClusteringAlgorithm', useClass: KMeans }],
     }).compile();
 
     service = module.get<ClusterService>(ClusterService);
@@ -18,7 +19,7 @@ describe('ClusterService', () => {
 
   describe('generateClusters', () => {
     it('should create clusters', () => {
-      const embedding = [
+      var dataset = [
         [1, 1],
         [0, 1],
         [1, 0],
@@ -30,6 +31,22 @@ describe('ClusterService', () => {
         [89, 89],
         [57, 55],
       ];
+
+      // const embedding = [
+      //   [1, 1],
+      //   [0, 1],
+      //   [1, 0],
+      //   [10, 10],
+      //   [10, 13],
+      //   [13, 13],
+      //   [54, 54],
+      //   [55, 55],
+      //   [89, 89],
+      //   [57, 55],
+      // ];
+      //
+      //
+
       const result = [
         [0, 1, 2],
         [3, 4, 5],
@@ -37,16 +54,14 @@ describe('ClusterService', () => {
       ];
       const noise = [8];
 
-      const mockMessages: Message[] = embedding.map((embedding, index) => ({
+      const mockMessages: Message[] = dataset.map((embedding, index) => ({
         messageId: index,
         embedding,
       }));
 
-      service.generateClusters(mockMessages);
+      console.log(service.generateClusters(mockMessages));
 
       // console.log(service.getMessages());
-      service.getScore();
-      // Assert
       // expect(service.getMessages()).toBeInstanceOf();
       expect(Array.isArray(service.getMessages())).toBe(true);
     });
@@ -58,7 +73,7 @@ describe('test mock data', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ClusterService, { provide: 'IClusteringAlgorithm', useClass: Dbscan }],
+      providers: [ClusterService, { provide: 'IClusteringAlgorithm', useClass: KMeans }],
     }).compile();
 
     service = module.get<ClusterService>(ClusterService);
@@ -70,11 +85,11 @@ describe('test mock data', () => {
         .filter((benefit) => benefit.embeddings && benefit.embeddings.length > 0)
         .map((benefit) => ({ messageId: benefit.id, embedding: benefit.embeddings }));
 
-      service.generateClusters(mockMessages);
+      console.log(service.generateClusters(mockMessages));
 
-      console.log(service.getMessages());
-      console.log(service.getCentroids());
-      console.log(service.getScore());
+      // console.log(service.getMessages());
+      // console.log(service.getCentroids());
+      // console.log(service.getScore());
 
       expect(Array.isArray(service.getMessages())).toBe(true);
     });

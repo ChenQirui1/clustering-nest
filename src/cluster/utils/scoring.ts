@@ -8,53 +8,53 @@ export function silhouetteCoeffPerPoint(a: number, b: number) {
   return (b - a) / Math.max(a, b);
 }
 
-export function silhouetteCoeff(clusteredMessage: ClusteredMessage[]) {
-  const messages = clusteredMessage.map((cluster) => cluster.messages).flat();
+// export function silhouetteCoeff(clusteredMessage: ClusteredMessage[]) {
+//   const messages = clusteredMessage.map((cluster) => cluster.messages).flat();
 
-  const sum = messages
-    .map((message) => {
-      const { a, b } = inOutDistancePerPoint(message, clusteredMessage);
-      return silhouetteCoeffPerPoint(a, b);
-    })
-    .reduce((sum, currentCoeff) => sum + currentCoeff, 0);
+//   const sum = messages
+//     .map((message) => {
+//       const { a, b } = inOutDistancePerPoint(message, clusteredMessage);
+//       return silhouetteCoeffPerPoint(a, b);
+//     })
+//     .reduce((sum, currentCoeff) => sum + currentCoeff, 0);
 
-  return sum / messages.length;
-}
+//   return sum / messages.length;
+// }
 
-export function silhouetteCoeffPerCluster(clusteredMessage: ClusteredMessage[]) {
-  const messages = clusteredMessage.map(
-    (cluster) =>
-      cluster.messages
-        .map((message) => {
-          const { a, b } = inOutDistancePerPoint(message, clusteredMessage);
-          return silhouetteCoeffPerPoint(a, b);
-        })
-        .reduce((sum, currentCoeff) => sum + currentCoeff, 0) / cluster.messages.length,
-  );
+// export function silhouetteCoeffPerCluster(clusteredMessage: ClusteredMessage[]) {
+//   const messages = clusteredMessage.map(
+//     (cluster) =>
+//       cluster.messages
+//         .map((message) => {
+//           const { a, b } = inOutDistancePerPoint(message, clusteredMessage);
+//           return silhouetteCoeffPerPoint(a, b);
+//         })
+//         .reduce((sum, currentCoeff) => sum + currentCoeff, 0) / cluster.messages.length,
+//   );
 
-  return messages;
-}
+//   return messages;
+// }
 
-//used to identify closest and second closest
-//TODO: check if there is at least more than 2 clusters
-export function closestCluster(centroids: Centroid[], point: Message) {
-  const distances = distanceFromCentroids(centroids, point);
-  //TODO: add a check for at least 2 clusters
-  //find next nearest cluster
-  let closestCluster = distances[0];
-  let secondClosestCluster = distances[1];
+// //used to identify closest and second closest
+// //TODO: check if there is at least more than 2 clusters
+// export function closestCluster(centroids: Centroid[], point: Message) {
+//   const distances = distanceFromCentroids(centroids, point);
+//   //TODO: add a check for at least 2 clusters
+//   //find next nearest cluster
+//   let closestCluster = distances[0];
+//   let secondClosestCluster = distances[1];
 
-  for (let i = 0; i < distances.length; i++) {
-    if (distances[i].distance < closestCluster.distance) {
-      closestCluster = distances[i];
+//   for (let i = 0; i < distances.length; i++) {
+//     if (distances[i].distance < closestCluster.distance) {
+//       closestCluster = distances[i];
 
-      if (distances[i].distance < secondClosestCluster.distance) {
-        secondClosestCluster = distances[i];
-      }
-    }
-  }
-  return [closestCluster.clusterId, secondClosestCluster.clusterId];
-}
+//       if (distances[i].distance < secondClosestCluster.distance) {
+//         secondClosestCluster = distances[i];
+//       }
+//     }
+//   }
+//   return [closestCluster.clusterId, secondClosestCluster.clusterId];
+// }
 // calculate the mean distance of a point from other points
 export function calculateDistanceAgainstPoints(pointEmbedding: number[], embeddings: number[][]) {
   const sum = embeddings
@@ -70,24 +70,24 @@ export function euDistance(a: number[], b: number[]) {
   return distance;
 }
 
-export function inOutDistancePerPoint(point: Message, clusteredMessage: ClusteredMessage[]) {
-  //get centroids
-  const centroidsFromCluster = centroids(clusteredMessage);
+// export function inOutDistancePerPoint(point: Message, clusteredMessage: ClusteredMessage[]) {
+//   //get centroids
+//   const centroidsFromCluster = centroids(clusteredMessage);
 
-  //get closest clusters
-  const twoClosestClusters = closestCluster(centroidsFromCluster, point);
+//   //get closest clusters
+//   const twoClosestClusters = closestCluster(centroidsFromCluster, point);
 
-  const embeddingA = clusteredMessage
-    .find((cluster) => cluster.clusterId === twoClosestClusters[0])
-    .messages.map((message) => message.embedding);
+//   const embeddingA = clusteredMessage
+//     .find((cluster) => cluster.clusterId === twoClosestClusters[0])
+//     .messages.map((message) => message.embedding);
 
-  const embeddingB = clusteredMessage
-    .find((cluster) => cluster.clusterId === twoClosestClusters[1])
-    .messages.map((message) => message.embedding);
+//   const embeddingB = clusteredMessage
+//     .find((cluster) => cluster.clusterId === twoClosestClusters[1])
+//     .messages.map((message) => message.embedding);
 
-  const distA = calculateDistanceAgainstPoints(point.embedding, embeddingA);
+//   const distA = calculateDistanceAgainstPoints(point.embedding, embeddingA);
 
-  const distB = calculateDistanceAgainstPoints(point.embedding, embeddingB);
+//   const distB = calculateDistanceAgainstPoints(point.embedding, embeddingB);
 
-  return { a: distA, b: distB };
-}
+//   return { a: distA, b: distB };
+// }

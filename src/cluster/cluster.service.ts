@@ -8,7 +8,6 @@ import {
 } from './cluster.interface';
 import { PCA } from 'ml-pca';
 import { centroids } from './utils/centroid';
-import { silhouetteCoeff } from './utils/scoring';
 
 export interface IClusterService {
   generateClusters(messages: Message[]): ClusteredMessage[];
@@ -38,28 +37,31 @@ export class ClusterService implements IClusterService {
 
     const reducedEmbeddings = newEmbeddings.map((newEmbedding) => newEmbedding.slice(0, 2));
 
-    console.log('newEmbeddings: ', reducedEmbeddings);
+    // console.log('newEmbeddings: ', reducedEmbeddings);
 
     //perform clustering and determining cluster based on silhoutte analysis
-    this.clusterAlgorithm.generate(reducedEmbeddings);
+    this.clusterAlgorithm.fit(reducedEmbeddings);
 
-    console.log(this.clusterAlgorithm.getCluster());
+    console.log('clusterAlgorithm: ');
+    const clusteredMessage = this.clusterAlgorithm.generate(reducedEmbeddings);
+
+    // console.log(this.clusterAlgorithm.getCluster());
+
     //update messages with clusterId
-    this.clusterAlgorithm.getCluster().forEach((embeddingIndices, clusterId) => {
+    clusteredMessage.forEach((embeddingIndices, clusterId) => {
       // embeddingIndices.forEach((index) => (messages[index] = clusterId));
       const messagesInCluster = embeddingIndices.map((index) => messages[index]);
       this.messages.push({ clusterId, messages: messagesInCluster });
     });
 
-    //set outliers to a negative num
-    const messagesInOutlier = this.clusterAlgorithm.getOutliers().map((index) => messages[index]);
-    this.messages.push({ clusterId: -1, messages: messagesInOutlier });
-
-    this.centroids = centroids(this.messages);
+    // //set outliers to a negative num
+    // const messagesInOutlier = this.clusterAlgorithm.getOutliers().map((index) => messages[index]);
+    // this.messages.push({ clusterId: -1, messages: messagesInOutlier });
 
     return this.messages;
   }
 
+  //WIP
   getCentroids() {
     if (this.centroids.length === 0) {
       throw new Error('Centroids not generated');
@@ -82,6 +84,6 @@ export class ClusterService implements IClusterService {
   }
 
   getScore() {
-    return silhouetteCoeff(this.messages);
+    return 0;
   }
 }

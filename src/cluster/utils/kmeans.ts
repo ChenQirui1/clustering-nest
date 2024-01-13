@@ -9,6 +9,8 @@ export class KMeans implements IClusteringAlgorithm {
   private clusters: number[][];
   private clusterNames: string[];
   private outliers: number[] = [];
+  private nClusters: number;
+  private score: number;
 
   fit(embeddings: number[][]) {
     //dbscan implementation from
@@ -23,24 +25,39 @@ export class KMeans implements IClusteringAlgorithm {
     //two test -> test if cluster exceeds average silhouette score
     //if cluster size distribution is within cutoff
     //choose one of the size from the remaining ones
-
-    for (let i = 0; i < 10; i++) {
-      const clustersOfIndex = kmeans.run(embeddings, 2);
+    let clusterCount = [];
+    let clusterScore = 0;
+    for (let i = 2; i < 6; i++) {
+      const clustersOfIndex = kmeans.run(embeddings, i);
 
       const clusteredEmbeddings = clustersOfIndex.map((cluster) =>
         cluster.map((index) => embeddings[index]),
       );
 
-      const overallScore = silhouetteCoeff(clusteredEmbeddings);
-
-      if (testRun(clusteredEmbeddings, overallScore, 0.1)) {
-        //if pass, stop
-        break;
+      // const pass = testRun(clusteredEmbeddings, 0.5);
+      // if (pass) {
+      //   //if pass, stop
+      //   clusterCount.push(i);
+      // }
+      //
+      const score = silhouetteCoeff(clusteredEmbeddings);
+      if (clusterScore < score) {
+        clusterScore = score;
+        clusterCount = [i];
       }
     }
-    this.clusters = clustersOfIndex;
+
+    this.nClusters = clusterCount[0];
+    this.score = clusterScore;
+
+    console.log('nClusters: ', this.nClusters);
+    console.log('score: ', this.score);
   }
-  generate(embeddings: number[][]) {}
+  generate(embeddings: number[][]) {
+    const kmeans = new KMEANS();
+    console.log('nClusters: ', this.nClusters);
+    return kmeans.run(embeddings, this.nClusters);
+  }
   getCluster() {
     return this.clusters;
   }

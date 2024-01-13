@@ -24,7 +24,7 @@ export interface ClusterName {
 }
 
 export interface IClusteringAlgorithm {
-  generate(messages: number[][]): void;
+  generate(messages: number[][]): number[][];
   fit(embeddings: number[][]): void;
   getCluster(): number[][];
   getClusterNames(): string[];
