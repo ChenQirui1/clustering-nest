@@ -74,6 +74,7 @@ export class RealTimeCluster implements IClusteringAlgorithm {
         //existing cluster
         // add to existing points in cluster
         // retrieve cluster data
+        // inject relevant data of the centroid
         let data: number[][] = [];
         data.push(embedding);
         const newCentroid = data
