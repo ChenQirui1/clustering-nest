@@ -78,7 +78,10 @@ export class RealTimeCluster implements IClusteringAlgorithm {
         let data: number[][] = [];
         data.push(embedding);
         const newCentroid = data
-          .reduce((sum, point) => sum.map((val, index) => val + point[index]), [])
+          .reduce(
+            (sum, point) => sum.map((val, index) => val + point[index]),
+            [],
+          )
           .map((sum) => sum / data.length);
 
         this.centroids[indexOfClosestCluster] = newCentroid;
