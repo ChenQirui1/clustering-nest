@@ -3,7 +3,7 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 
 
-class InOutKmeansOld():
+class InOutKmeansOld:
     def __init__(self):
         self._centroids = []
         # self._points_in_centroids = []
@@ -11,13 +11,14 @@ class InOutKmeansOld():
 
     def predict(self, newPoint):
         if self._centroids:
-
-            inCluster = KMeans(n_clusters=len(self._centroids),
-                               random_state=0).fit_predict(self.data)
+            inCluster = KMeans(
+                n_clusters=len(self._centroids), random_state=0
+            ).fit_predict(self.data)
 
             mergeData = np.concatenate((self.data, newPoint), axis=0)
-            outCluster = KMeans(n_clusters=len(self._centroids)+1,
-                                random_state=0).fit_predict(mergeData)
+            outCluster = KMeans(
+                n_clusters=len(self._centroids) + 1, random_state=0
+            ).fit_predict(mergeData)
 
             inScore = silhouette_score(self.data, inCluster)
 
@@ -26,10 +27,9 @@ class InOutKmeansOld():
             if inScore < outScore:
                 # new cluster
                 self._centroids.append()
-                return len(self._centroids)-1
+                return len(self._centroids) - 1
 
             else:
-
                 # return point to cluster
                 label = outCluster[-1]
 
@@ -41,7 +41,7 @@ class InOutKmeansOld():
             return 0
 
 
-class InOutKmeans():
+class InOutKmeans:
     def __init__(self):
         self._centroids = []
         # self._points_in_centroids = []
@@ -49,14 +49,15 @@ class InOutKmeans():
 
     def predict(self, newPoint):
         if len(self._centroids) >= 2:
-
             self.data.append(newPoint)
 
-            inCluster = KMeans(n_clusters=len(self._centroids),
-                               random_state=0).fit_predict(self.data)
+            inCluster = KMeans(
+                n_clusters=len(self._centroids), random_state=0
+            ).fit_predict(self.data)
 
-            outCluster = KMeans(n_clusters=len(self._centroids)+1,
-                                random_state=0).fit_predict(self.data)
+            outCluster = KMeans(
+                n_clusters=len(self._centroids) + 1, random_state=0
+            ).fit_predict(self.data)
 
             inScore = silhouette_score(self.data, inCluster)
 
@@ -65,16 +66,15 @@ class InOutKmeans():
             if inScore < outScore:
                 # new cluster
                 self._centroids.append(newPoint)
-                return len(self._centroids)-1
+                return len(self._centroids) - 1
 
             else:
-
                 # return point to cluster
                 label = outCluster[-1]
 
                 return label
 
-        elif (len(self._centroids) == 1):
+        elif len(self._centroids) == 1:
             self.data.append(newPoint)
             self._centroids.append(newPoint)
             return 1

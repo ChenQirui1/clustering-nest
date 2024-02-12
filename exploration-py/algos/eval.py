@@ -7,6 +7,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
 import numpy as np
+from sklearn.metrics import silhouette_score
 
 rtefc = RTEFC()
 rtmac = RealtimeCluster()
@@ -27,9 +28,11 @@ X, df = process_data("../data/benefits_transformed.json")
 
 
 def test_cluster(X, model):
-    for i in range(100):
-        for idx, i in enumerate(X):
-            model.predict(i, cutoff=0.1)
+    for idx, i in enumerate(X):
+        label = model.predict(i, cutoff=0.1)
+        labels.append(label)
+
+    return silhouette_score(X, labels)
 
 
 # timeit
